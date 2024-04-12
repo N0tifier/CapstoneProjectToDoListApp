@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ToDoListApp.Models.Output.GetToDoOutput>
+
+@{
+    ViewBag.Title = "To-Do List";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Text</th>
+            <th>Due Date</th>
+            <th>Reminder Date</th>
+            <th>Repeat Type</th>
+            <th>Important</th>
+            <th>Note</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td hidden><input type="hidden" name="id" value="@item.Id" /></td>
+                <td>@item.Text</td>
+                <td>@item.DueDate?.ToString("d")</td>
+                <td>@item.ReminderDate?.ToString("g")</td>
+                <td>@item.RepeatType</td>
+                <td>@item.Important</td>
+                <td>@item.Note</td>
+                <td>
+                    <form asp-controller="Home" asp-action="EditToDo" method="get">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger delete-button" data-item-id="@item.Id">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                var itemId = e.target.getAttribute('data-item-id');
+                if (confirm('Are you sure you want to delete this item?')) {
+                    fetch('/Home/Delete', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'id=' + itemId
+                    }).then(response => {
+                        if (response.ok) {
+                            alert('Item deleted successfully.');
+                            e.target.closest('tr').remove();
+                        } else {
+                            response.text().then(text => {
+                                alert('Error deleting item: ' + text);
+                            });
+                        }
+                    }).catch(error => {
+                        alert('There was a network error deleting the item.');
+                    });
+                }
+            });
+        });
+
+    </script>
+}

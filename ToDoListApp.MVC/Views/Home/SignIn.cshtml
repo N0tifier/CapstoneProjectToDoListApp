@@ -1,0 +1,15 @@
+﻿@model ToDoListApp.Models.Input.SignInInput
+
+<form asp-action="SignIn" method="post">
+    <div class="form-group">
+        <label for="Username">Username</label>
+        <input type="text" class="form-control" id="Username" name="Username" required />
+    </div>
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("SignUp")'">Sign Up</button>
+    <button type="button" class="btn btn-link" onclick="location.href='@Url.Action("RestorePassword")'">Restore Password</button>
+</form>

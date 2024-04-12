@@ -1,0 +1,37 @@
+﻿@model ToDoListApp.Models.Output.GetToDoOutput
+
+<form asp-action="UpdateToDo" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="Text">Text</label>
+        <input type="text" class="form-control" id="Text" name="Text" value="@Model.Text" />
+    </div>
+
+    <div class="form-group">
+        <label for="DueDate">Due Date</label>
+        <input type="date" class="form-control" id="DueDate" name="DueDate" value="@Model.DueDate?.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="form-group">
+        <label for="ReminderDate">Reminder Date</label>
+        <input type="datetime-local" class="form-control" id="ReminderDate" name="ReminderDate" value="@Model.ReminderDate?.ToString("yyyy-MM-ddTHH:mm")" />
+    </div>
+
+    <div class="form-group">
+        <label for="RepeatType">Repeat Type</label>
+        <input type="text" class="form-control" id="RepeatType" name="RepeatType" value="@Model.RepeatType" />
+    </div>
+
+    <div class="form-group">
+        <label for="Important">Important</label>
+        <input type="checkbox" class="form-check-input" id="Important" name="Important" @(Model.Important ? "checked" : "") />
+    </div>
+
+    <div class="form-group">
+        <label for="Note">Note</label>
+        <textarea class="form-control" id="Note" name="Note">@Model.Note</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

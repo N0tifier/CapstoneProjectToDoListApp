@@ -1,0 +1,35 @@
+﻿@model ToDoListApp.Models.Input.AddToDoInput
+
+<form asp-action="AddToDo" method="post">
+    <div class="form-group">
+        <label for="Text">Text</label>
+        <input type="text" class="form-control" id="Text" name="Text" value="@Model.Text" />
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date</label>
+        <input type="date" class="form-control" id="DueDate" name="DueDate" value="@Model.DueDate?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group">
+        <label for="ReminderDate">Reminder Date</label>
+        <input type="date" class="form-control" id="ReminderDate" name="ReminderDate" value="@Model.ReminderDate?.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group">
+        <label for="RepeatType">Repeat Type</label>
+        <input type="text" class="form-control" id="RepeatType" name="RepeatType" value="@Model.RepeatType" placeholder="e.g., Daily, Weekly, Monthly" />
+    </div>
+    <div class="form-group">
+        <label for="Important">Important</label>
+        <div class="form-check">
+            <input type="hidden" name="Important" value="true" />
+            <input class="form-check-input" type="checkbox" id="Important" name="Important" value="false" @(Model.Important ? "checked" : "") />
+            <label class="form-check-label" for="Important">
+                Mark as important
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Note">Note</label>
+        <textarea class="form-control" id="Note" name="Note">@Model.Note</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add To Do</button>
+</form>

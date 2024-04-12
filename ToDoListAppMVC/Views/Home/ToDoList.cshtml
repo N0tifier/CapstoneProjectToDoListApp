@@ -1,0 +1,12 @@
+﻿@model List<GetToDoOutput>
+
+<h2>ToDo List</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Text (@item.DueDate.ToString("yyyy-MM-dd")) - Important: @item.Important
+        </li>
+    }
+</ul>
