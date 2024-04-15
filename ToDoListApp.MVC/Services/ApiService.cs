@@ -1,16 +1,16 @@
 ﻿// <copyright file="ApiService.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+using System.Net;
+using ToDoListApp.Models.Input;
+using ToDoListApp.Models.Output;
+using ToDoListApp.MVC.Models.Input;
+
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1309 // Field names should not begin with underscore
 
 namespace ToDoListApp.MVC.Services
 {
-    using System.Net;
-    using ToDoListApp.Models.Input;
-    using ToDoListApp.Models.Output;
-    using ToDoListApp.MVC.Models.Input;
-
     public class ApiService
     {
         private readonly HttpClient _httpClient;

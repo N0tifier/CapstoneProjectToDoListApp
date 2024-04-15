@@ -1,12 +1,12 @@
 // <copyright file="CreateUserInput.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+using System.ComponentModel.DataAnnotations;
+
 #pragma warning disable SA1600 // Elements should be documented
 
 namespace ToDoListApp.Models.Input
 {
-    using System.ComponentModel.DataAnnotations;
-
     public class CreateUserInput
     {
         [Required]

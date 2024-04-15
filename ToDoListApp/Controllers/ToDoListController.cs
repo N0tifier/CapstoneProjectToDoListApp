@@ -1,20 +1,19 @@
 // <copyright file="ToDoListController.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ToDoListApp.Database;
+using ToDoListApp.Managers;
+using ToDoListApp.Models.Input;
+using ToDoListApp.Models.Output;
+
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1309 // Field names should not begin with underscore
-#pragma warning disable SA1200 // Using directives should be placed correctly
 
 namespace ToDoListApp.Controllers
 {
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using ToDoListApp.Database;
-    using ToDoListApp.Managers;
-    using ToDoListApp.Models.Input;
-    using ToDoListApp.Models.Output;
-
     [ApiController]
     [Route("[controller]")]
     public class ToDoListController : ControllerBase

@@ -1,19 +1,19 @@
 // <copyright file="ToDoListManager.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using ToDoListApp.Database;
+using ToDoListApp.Models.DatabaseEntities;
+using ToDoListApp.Models.Input;
+using ToDoListApp.Models.Output;
+
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1309 // Field names should not begin with underscore
 
 namespace ToDoListApp.Managers
 {
-    using System.Security.Cryptography;
-    using System.Text;
-    using Microsoft.EntityFrameworkCore;
-    using ToDoListApp.Database;
-    using ToDoListApp.Models.DatabaseEntities;
-    using ToDoListApp.Models.Input;
-    using ToDoListApp.Models.Output;
-
     public class ToDoListManager
     {
         private readonly TodoListContext _context;

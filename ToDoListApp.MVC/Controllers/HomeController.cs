@@ -1,20 +1,19 @@
 ﻿// <copyright file="HomeController.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using ToDoListApp.Models.Input;
+using ToDoListApp.Models.Output;
+using ToDoListApp.MVC.Models.Input;
+using ToDoListApp.MVC.Models.Output;
+using ToDoListApp.MVC.Services;
+
 #pragma warning disable SA1600 // Elements should be documented
 #pragma warning disable SA1309 // Field names should not begin with underscore
 
 namespace ToDoListApp.MVC.Controllers
 {
-#pragma warning disable SA1200 // Using directives should be placed correctly
-    using System.Diagnostics;
-    using Microsoft.AspNetCore.Mvc;
-    using ToDoListApp.Models.Input;
-    using ToDoListApp.Models.Output;
-    using ToDoListApp.MVC.Models.Input;
-    using ToDoListApp.MVC.Models.Output;
-    using ToDoListApp.MVC.Services;
-
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
